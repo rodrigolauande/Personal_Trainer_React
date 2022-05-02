@@ -1,0 +1,111 @@
+:root {
+
+    --bg-dark: #1A2F3A;
+
+    --menu-height: 100px; /*altura do logo */
+    --header-height: 130px; /*altura do header */
+    --aside-height: 225px; /*largura do menu */
+    --footer-height: 40px; /*altura do footer */
+
+    --shadow: /*usado em mais de um local na aplicação*/
+    0 2px 23px 0 rgba(0, 0, 0, 0.1),
+    0 2px 29px 0 rgba(0, 0, 0, 0,06);
+}
+
+* { /*usando o seletor universal*/
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;        
+}
+
+.app { /*grid completa -> detalhado dos espaços definidos, antes da definição de cada componente*/
+    margin:0px;
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+    grid-template-rows: 
+        var(--menu-height)
+        var(--header-height)
+        1fr
+        var(--footer-height);
+    grid-template-areas:
+        "menu menu menu"
+        "header header header"
+        "content content content"
+        "footer footer footer";
+    height: 100vh;
+    background-color: #F5F5F5;
+}
+
+aside.logo {
+    grid-area: logo;
+}
+
+header.header {
+    grid-area: header;
+}
+
+aside.menu-area {
+    grid-area: menu;
+}
+
+main.content {
+    grid-area: content;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+footer.footer {
+    grid-area: footer;
+}
+
+.image-gallery {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    font-size: 30px;
+    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+}
+
+.rede {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rede img {
+    height: 200px;
+    width: 200px;
+}
+
+@media(max-width: 768){
+    .app { 
+            grid-template-rows:
+                var(--menu-height)
+                var(--header-height)
+                1fr
+                var(--footer-height);
+            grid-template-columns: 4fr 4fr 4fr;
+            grid-template-areas:
+            "menu menu menu"
+            "header header header"
+            "content content content"
+            "footer footer footer"
+    }
+}
+
+@media(max-width: 576px) {
+    .app {
+        grid-template-rows:
+            var(--menu-height)
+            var(--header-top-height)
+            1fr
+            var(--footer-height);
+        grid-template-columns: 4fr 4fr 4fr;
+        grid-template-areas:
+            "menu"
+            "header"
+            "content"
+            "footer";
+    }
+}

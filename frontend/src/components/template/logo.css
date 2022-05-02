@@ -1,0 +1,20 @@
+aside.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+
+    overflow:hidden;
+    object-fit: cover;
+    border: none;
+    border-radius: 100%;
+
+    background-color: rgb(221, 221, 221);
+    height: 100%;
+    width: 20%;
+}
+
+aside.logo img {
+    padding: 5px ;
+    width: 110px;
+}
